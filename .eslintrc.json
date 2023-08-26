@@ -3,7 +3,7 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:prettier/recommended",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -12,16 +12,17 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "import/order": [2, {"alphabetize": {"order": "asc"}}],
-    "prettier/prettier": [
-      "error",
+    "import/no-unresolved": 0,
+    "semi": [
+      2,
+      "never"
+    ],
+    "import/order": [
+      2,
       {
-        "trailingComma": "all",
-        "endOfLine": "lf",
-        "singleQuote": true,
-        "printWidth": 80,
-        "tabWidth": 2,
-        "semi": false
+        "alphabetize": {
+          "order": "asc"
+        }
       }
     ]
   }

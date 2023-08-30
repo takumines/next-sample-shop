@@ -1,7 +1,8 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { theme } from '@/themes'
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -10,20 +11,20 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sana, "Droid Sans", Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sana, "Droid Sans", Helvetica Neue, sans-serif;
   }
-  
+
   * {
     box-sizing: border-box;
   }
-  
+
   a {
     cursor: pointer;
     text-decoration: none;
     transition: .25s;
     color: #000;
   }
-  
+
   ol, ul {
     list-style: none;
   }
@@ -39,7 +40,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta property="og:type" content="website" />
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }

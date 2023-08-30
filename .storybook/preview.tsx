@@ -20,11 +20,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
+
   * {
     box-sizing: border-box;
   }
+
   a {
     text-decoration: none;
     transition: .25s;
@@ -33,21 +35,11 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 // Themeの適用
-addDecorator((story) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    {story()}
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Story />
     </ThemeProvider>
-))
-
-// next/imageの差し替え
-const OriginalNextImage = NextImage.default;
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => typeof props.src === 'string' ? (
-    <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
-) : (
-  <OriginalNextImage {...props} unoptimized />
-),
-})
+  ),
+]

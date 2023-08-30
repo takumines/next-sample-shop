@@ -1,7 +1,6 @@
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Image from 'next/image'
-import App from '@/components/Form'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -81,7 +80,6 @@ export default function Home() {
             <p>Instantly deploy your Next.js site to a shareable URL with&nbsp;Vercel.</p>
           </a>
         </div>
-        <App />
       </main>
     </>
   )

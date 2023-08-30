@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
+import { theme } from '@/themes'
+
 /**
  * Responsiveプロパティ
  */
@@ -57,3 +59,11 @@ export type CSSPropertyGridRow = CSSPropertyGlobals | GridLine | (string & {})
 export type CSSPropertyGridAutoFlow = CSSPropertyGlobals | 'column' | 'dense' | 'row' | (string & {})
 
 export type CSSPropertyGridArea = CSSPropertyGlobals | GridLine | (string & {})
+
+// Themeの型
+export type AppTheme = typeof theme
+
+declare module 'styled-components' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultTheme extends AppTheme {}
+}
